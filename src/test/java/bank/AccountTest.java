@@ -61,10 +61,8 @@ public class AccountTest {
         // When
         account.deposit(THE_2020_01_01,AMOUNT_15);
         account.withdrawal(THE_2020_01_01,AMOUNT_5);
-
         //Then
         assertThat(account.getBalance()).isEqualTo(AMOUNT_10);
-
     }
 
     @Test

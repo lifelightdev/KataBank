@@ -4,9 +4,9 @@ import java.time.LocalDate;
 abstract class Transaction {
 
     private LocalDate date;
-    protected int amount;
+    private int amount;
 
-    public Transaction(LocalDate date, int amount) {
+    protected Transaction(LocalDate date, int amount) {
         super();
         this.date = date;
         this.amount = amount;
