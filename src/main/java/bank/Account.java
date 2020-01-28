@@ -23,6 +23,7 @@ public class Account {
 
     public void deposit(LocalDate date, int amount) {
         transactions.add(new Deposit(date,amount));
+        balance += amount;
     }
 
     public void withdrawal(LocalDate date, int amount) {

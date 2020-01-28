@@ -35,7 +35,7 @@ public class AccountTest {
     void Should_balanceReturn1_When_firstDeposit1() {
 
         // When
-        account.deposit(1);
+        account.deposit( THE_2020_01_01,1);
 
         //Then
         assertThat(account.getBalance()).isEqualTo(1);
