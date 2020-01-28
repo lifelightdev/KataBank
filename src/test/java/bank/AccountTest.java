@@ -55,4 +55,17 @@ public class AccountTest {
 
     }
 
+    @Test
+    void Should_balanceReturn_When_someWithdrawal() {
+
+        // When
+        account.deposit(15);
+        account.withdrawal(5);
+        account.withdrawal(2);
+
+        //Then
+        assertThat(account.getBalance()).isEqualTo(8);
+
+    }
+
 }
