@@ -46,9 +46,9 @@ public class AccountTest {
     void Should_returnBalance_When_someDeposit() {
 
         // When
-        account.deposit(1);
-        account.deposit(3);
-        account.deposit(6);
+        account.deposit(THE_2020_01_01,1);
+        account.deposit(THE_2020_01_02,3);
+        account.deposit(THE_2020_01_03,6);
 
         //Then
         assertThat(account.getBalance()).isEqualTo(10);
@@ -59,7 +59,7 @@ public class AccountTest {
     void Should_balanceReturn10_When_deposit15AndWithdrawal5() {
 
         // When
-        account.deposit(15);
+        account.deposit(THE_2020_01_01,15);
         account.withdrawal(5);
 
         //Then
@@ -71,7 +71,7 @@ public class AccountTest {
     void Should_balanceReturn_When_someWithdrawal() {
 
         // When
-        account.deposit(15);
+        account.deposit(THE_2020_01_01,15);
         account.withdrawal(5);
         account.withdrawal(2);
 
