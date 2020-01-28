@@ -14,13 +14,15 @@ public class Account {
     }
 
     public void deposit(LocalDate date, int amount) {
-        transactions.add(new Deposit(date,amount));
-        balance += amount;
+        Deposit deposit = new Deposit(date,amount);
+        transactions.add(deposit);
+        balance = deposit.calculateBalance(balance);
     }
 
     public void withdrawal(LocalDate date, int amount) {
-        transactions.add(new Withdrawal(date,amount));
-        balance -= amount;
+        Withdrawal withdrawal = new Withdrawal(date,amount);
+        transactions.add(withdrawal);
+        balance = withdrawal.calculateBalance(balance);
     }
 
     public String printHistoryOperations() {
