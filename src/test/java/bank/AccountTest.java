@@ -19,4 +19,18 @@ public class AccountTest {
 
     }
 
+    @Test
+    void Should_balanceReturn1_When_firstDeposit1() {
+
+        // Give
+        Account account = new Account();
+
+        // When
+        account.deposit(1);
+
+        //Then
+        assertThat(account.getBalance()).isEqualTo(1);
+
+    }
+
 }
