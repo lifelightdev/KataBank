@@ -10,6 +10,10 @@ abstract class Transaction {
         return new Deposit(date, amount);
     }
 
+    static Withdrawal createWithdrawal(LocalDate date, int amount){
+        return new Withdrawal(date, amount);
+    }
+
     protected Transaction(LocalDate date, int amount) {
         super();
         this.date = date;

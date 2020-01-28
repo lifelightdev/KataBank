@@ -20,8 +20,7 @@ public class Account {
     }
 
     public void withdrawal(LocalDate date, int amount) {
-        Withdrawal withdrawal = new Withdrawal(date,amount);
-        transactions.add(withdrawal);
+        transactions.add(Transaction.createWithdrawal(date, amount));
     }
 
     public String printHistoryOperations() {
