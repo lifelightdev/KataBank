@@ -15,7 +15,7 @@ public class Print {
                     .append(transaction.getDate()).append(COLUMN_SEPARATOR)
                     .append(transaction.getAmount()).append(COLUMN_SEPARATOR)
                     .append(transaction.calculateBalance(balance)).append(LINE_SEPARATOR);
-            balance += transaction.calculateBalance(balance);
+            balance = transaction.calculateBalance(balance);
         }
         return history.toString();
     }
