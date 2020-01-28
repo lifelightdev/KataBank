@@ -6,6 +6,10 @@ abstract class Transaction {
     private LocalDate date;
     private int amount;
 
+    static Deposit createDeposit(LocalDate date, int amount){
+        return new Deposit(date, amount);
+    }
+
     protected Transaction(LocalDate date, int amount) {
         super();
         this.date = date;

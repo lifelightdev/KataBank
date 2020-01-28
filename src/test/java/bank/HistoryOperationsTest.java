@@ -31,7 +31,7 @@ public class HistoryOperationsTest {
     @Test
     void Should_returnHistoryOfOneOperation_When_deposit(){
         // When
-        transactions.add(new Deposit(THE_2020_01_01, AMOUNT_10));
+        transactions.add(Transaction.createDeposit(THE_2020_01_01, AMOUNT_10));
         // Then
         assertThat(Print.historyOperations(transactions)).isEqualTo("Deposit | 2020-01-01 | 10 | 10" + LINE_SEPARATOR);
     }
@@ -39,8 +39,8 @@ public class HistoryOperationsTest {
     @Test
     void Should_returnHistoryOfSomeOperationDeposit_When_someDeposit(){
         // When
-        transactions.add(new Deposit(THE_2020_01_01, AMOUNT_10));
-        transactions.add(new Deposit(THE_2020_01_02, AMOUNT_20));
+        transactions.add(Transaction.createDeposit(THE_2020_01_01, AMOUNT_10));
+        transactions.add(Transaction.createDeposit(THE_2020_01_02, AMOUNT_20));
         // Then
         assertThat(Print.historyOperations(transactions)).isEqualTo(
                 "Deposit | 2020-01-01 | 10 | 10" + LINE_SEPARATOR +
@@ -50,7 +50,7 @@ public class HistoryOperationsTest {
     @Test
     void Should_returnHistoryOfOperationWithWithdrawal_When_oneDepositAndOneWithdrawal(){
         // When
-        transactions.add(new Deposit(THE_2020_01_01, AMOUNT_50));
+        transactions.add(Transaction.createDeposit(THE_2020_01_01, AMOUNT_50));
         transactions.add(new Withdrawal(THE_2020_01_02, AMOUNT_10));
         // Then
         assertThat(Print.historyOperations(transactions)).isEqualTo(
@@ -61,7 +61,7 @@ public class HistoryOperationsTest {
     @Test
     void Should_returnHistoryOfOperationWithWithdrawal_When_oneDepositAndSomeWithdrawal(){
         // When
-        transactions.add(new Deposit(THE_2020_01_01, AMOUNT_50));
+        transactions.add(Transaction.createDeposit(THE_2020_01_01, AMOUNT_50));
         transactions.add(new Withdrawal(THE_2020_01_02, AMOUNT_10));
         transactions.add(new Withdrawal(THE_2020_01_03, AMOUNT_5));
         // Then

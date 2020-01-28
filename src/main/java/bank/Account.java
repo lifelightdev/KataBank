@@ -16,8 +16,7 @@ public class Account {
     }
 
     public void deposit(LocalDate date, int amount) {
-        Deposit deposit = new Deposit(date,amount);
-        transactions.add(deposit);
+        transactions.add(Transaction.createDeposit(date, amount));
     }
 
     public void withdrawal(LocalDate date, int amount) {
