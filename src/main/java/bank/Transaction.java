@@ -3,7 +3,7 @@ import java.time.LocalDate;
 
 abstract class Transaction {
 
-    private static LocalDate date;
+    private LocalDate date;
     protected int amount;
 
     public Transaction(LocalDate date, int amount) {
