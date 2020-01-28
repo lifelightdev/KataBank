@@ -13,10 +13,6 @@ public class Account {
         return balance;
     }
 
-    public void withdrawal(int amount) {
-        balance -= amount;
-    }
-
     public void deposit(LocalDate date, int amount) {
         transactions.add(new Deposit(date,amount));
         balance += amount;
@@ -24,6 +20,7 @@ public class Account {
 
     public void withdrawal(LocalDate date, int amount) {
         transactions.add(new Withdrawal(date,amount));
+        balance -= amount;
     }
 
     public String printHistoryOperations() {

@@ -60,7 +60,7 @@ public class AccountTest {
 
         // When
         account.deposit(THE_2020_01_01,15);
-        account.withdrawal(5);
+        account.withdrawal(THE_2020_01_01,5);
 
         //Then
         assertThat(account.getBalance()).isEqualTo(10);
@@ -72,8 +72,8 @@ public class AccountTest {
 
         // When
         account.deposit(THE_2020_01_01,15);
-        account.withdrawal(5);
-        account.withdrawal(2);
+        account.withdrawal(THE_2020_01_02, 5);
+        account.withdrawal(THE_2020_01_03,2);
 
         //Then
         assertThat(account.getBalance()).isEqualTo(8);
