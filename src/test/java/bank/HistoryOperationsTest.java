@@ -19,6 +19,7 @@ public class HistoryOperationsTest {
     private final static LocalDate THE_2020_01_02 = LocalDate.of(2020,1,2);
     private final static int AMOUNT_10 = 10;
     private final static int AMOUNT_20 = 20;
+    private final static int AMOUNT_50 = 50;
 
     @BeforeEach
     private void setup(){
@@ -39,8 +40,20 @@ public class HistoryOperationsTest {
         transactions.add(new Deposit(THE_2020_01_01, AMOUNT_10));
         transactions.add(new Deposit(THE_2020_01_02, AMOUNT_20));
         // Then
-        assertThat(Print.historyOperations(transactions)).isEqualTo("Deposit | 2020-01-01 | 10 | 10" + LINE_SEPARATOR +
+        assertThat(Print.historyOperations(transactions)).isEqualTo(
+                "Deposit | 2020-01-01 | 10 | 10" + LINE_SEPARATOR +
                 "Deposit | 2020-01-02 | 20 | 30" + LINE_SEPARATOR);
+    }
+
+    @Test
+    void Should_returnHistoryOfOperationWithWithdrawal_When_oneDepositAndOneWithdrawal(){
+        // When
+        transactions.add(new Deposit(THE_2020_01_01, AMOUNT_50));
+        transactions.add(new Withdrawal(THE_2020_01_02, AMOUNT_10));
+        // Then
+        assertThat(Print.historyOperations(transactions)).isEqualTo(
+                "Deposit | 2020-01-01 | 50 | 50" + LINE_SEPARATOR+
+                "Withdrawal | 2020-01-02 | 10 | 40" + LINE_SEPARATOR);
     }
 
 }
