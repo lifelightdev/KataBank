@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Account {
 
-    private List<Transaction> transactions = new ArrayList<>();
+    private final List<Transaction> transactions = new ArrayList<>();
 
     public int getBalance() {
         return transactions.stream().mapToInt(x -> x.calculateBalance(0)).sum();
@@ -23,4 +23,5 @@ public class Account {
     public String printHistoryOperations() {
         return Print.historyOperations(transactions);
     }
+
 }

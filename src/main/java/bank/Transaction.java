@@ -3,8 +3,8 @@ import java.time.LocalDate;
 
 abstract class Transaction {
 
-    private LocalDate date;
-    private int amount;
+    private final LocalDate date;
+    private final int amount;
 
     static Deposit createDeposit(LocalDate date, int amount){
         return new Deposit(date, amount);

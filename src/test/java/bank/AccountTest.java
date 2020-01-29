@@ -34,7 +34,7 @@ public class AccountTest {
     }
 
     @Test
-    void Shouls_balanceReturn0_When_noTransaction() {
+    void Should_balanceReturn0_When_noTransaction() {
         assertThat(account.getBalance()).isEqualTo(AMOUNT_0);
     }
 
