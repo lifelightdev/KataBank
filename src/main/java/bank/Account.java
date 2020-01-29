@@ -1,18 +1,27 @@
 package bank;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Account {
 
-    private int balance = 0;
+    private final List<Transaction> transactions = new ArrayList<>();
 
     public int getBalance() {
-        return balance;
+        return transactions.stream().mapToInt(x -> x.calculateBalance(0)).sum();
     }
 
-    public void deposit(int amount) {
-        balance += amount;
+    public void deposit(LocalDate date, int amount) {
+        transactions.add(Transaction.createDeposit(date, amount));
     }
 
-    public void withdrawal(int amount) {
-        balance -= amount;
+    public void withdrawal(LocalDate date, int amount) {
+        transactions.add(Transaction.createWithdrawal(date, amount));
     }
+
+    public String printHistoryOperations() {
+        return Print.historyOperations(transactions);
+    }
+
 }
