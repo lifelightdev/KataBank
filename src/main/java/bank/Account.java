@@ -5,14 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Account {
+
     private List<Transaction> transactions = new ArrayList<>();
 
     public int getBalance() {
-        int balance = 0;
-        for (Transaction transaction: transactions){
-            balance = transaction.calculateBalance(balance);
-        }
-        return balance;
+        return transactions.stream().mapToInt(x -> x.calculateBalance(0)).sum();
     }
 
     public void deposit(LocalDate date, int amount) {
